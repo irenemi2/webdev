@@ -7,28 +7,40 @@
 <body>
 
 <div class="container">
-<h1>Sign Up</h1>
-
+<h1 class="heading">Sign Up</h1>
+<div class="form">
 <form action="/action_page.php">
-  <label for="fname"></label><br>
-  <input type="text" id="fname" name="fname" placeholder="John"><br>
-  <label for="lname"></label><br>
-  <input type="text" id="lname" name="lname" placeholder="Doe"><br>
-  <label for="mobileno"></label><br>
-  <input type="text" id="mobileno" name="mobileno" placeholder="Mobile No."><br>
-  <label for="email"></label><br>
-  <input type="text" id="email" name="email" placeholder="Email Address"><br>
-  <label for="password"></label><br>
-  <input type="text" id="password" name="password" placeholder="Password"><br>
-  <label for="cpassword"></label><br>
-  <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password"><br>
-  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+  <div class="inline">
+  <label for="fname"></label>
+  <input type="text" id="fname" name="fname" placeholder="First Name">
+  <label for="lname"></label>
+  <input type="text" id="lname" name="lname" placeholder="Last Name">
+  </div>
+
+  
+  <label for="mobileno"></label>
+  <input type="text" id="mobileno" name="mobileno" placeholder="Mobile No.">
+  <label for="email"></label>
+  <input type="text" id="email" name="email" placeholder="Email Address">
+  
+
+  <div class="inline">
+  <label for="password"></label>
+  <input type="text" id="password" name="password" placeholder="Password">
+  <label for="cpassword"></label>
+  <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password">
+  </div>
+  <br/>
+
+  <input type="checkbox" id="agreeterms" name="agreeterms" value="I Agree">
+  <label for="agreeterms"> I Agree</label>
+  <p>By clicking register, you agree to the <a href="#">Terms and Conditions</a> set out by this site,including our Cookie Use.</p>
   <input type="Register" class ="register" value="Register">
   <input type="Sign In" class="signin" value="Sign In">
   
 </form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+</div>
 </div>
 </body>
 </html>

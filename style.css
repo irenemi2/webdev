@@ -9,23 +9,55 @@ body {
   
   /* Add padding to containers */
   .container {
-    padding: 16px;
-    background-color: white;
+    font-family: arial;
+    font-size: 24px;
+    border: 15px solid white;
+    padding: 50px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
+    
+    
+  }
+  .form{
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  /* background-color: #2196F3; */
+  padding: 10px;
+  }
+
+  #mobileno,#email {
+    grid-column: 2 / span 2;
   }
   
   /* Full-width input fields */
-  input[type=text], input[type=password] {
+  /* .block{
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
-    display: inline-block;
+    display: block;
     border: none;
-    background: #f1f1f1;
-  }
+    
+  } */
+ 
+
+  /* .inline{
+    display:inline;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+  } */
   
   input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
+    border: 2px solid powderblue;
+    border-radius:5px ;
     outline: none;
   }
   
@@ -36,7 +68,7 @@ body {
   }
   
   /* Set a style for the submit button */
-  .registerbtn {
+  /* .registerbtn {
     background-color: #04AA6D;
     color: white;
     padding: 16px 20px;
@@ -45,11 +77,8 @@ body {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
-  }
+  } */
   
-  .registerbtn:hover {
-    opacity: 1;
-  }
   
   /* Add a blue text color to links */
   a {
@@ -60,8 +89,16 @@ body {
   .signin {
     background-color: greenyellow;
     text-align: center;
+    cursor: pointer;
   }
   .register{
     background-color: powderblue;
     text-align: center;
+    cursor: pointer;
+  }
+  .register:hover {
+    opacity: 0.7;
+  }
+  .signin:hover {
+    opacity: 0.7;
   }
