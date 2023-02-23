@@ -7,38 +7,61 @@
 <body>
 
 <div class="container">
-<h1 class="heading">Sign Up</h1>
+<h2 class="heading">Sign Up</h2>
 <div class="form">
 <form action="/action_page.php">
 
-  <div class="inline">
-  <label for="fname"></label>
-  <input type="text" id="fname" name="fname" placeholder="First Name">
-  <label for="lname"></label>
-  <input type="text" id="lname" name="lname" placeholder="Last Name">
+  <div class="row">
+    <div class="column">
+      <label for="fname"></label>
+      <input type="text" id="fname" name="fname" placeholder="First Name">
+    </div>
+    <div class="column">
+      <label for="lname"></label>
+      <input type="text" id="lname" name="lname" placeholder="Last Name">
+    </div>
   </div>
-
-  
-  <label for="mobileno"></label>
-  <input type="text" id="mobileno" name="mobileno" placeholder="Mobile No.">
-  <label for="email"></label>
-  <input type="text" id="email" name="email" placeholder="Email Address">
-  
-
-  <div class="inline">
-  <label for="password"></label>
-  <input type="text" id="password" name="password" placeholder="Password">
-  <label for="cpassword"></label>
-  <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password">
+  <div class="row">
+    <label for="mobileno"></label>
+    <input type="text" id="mobileno" name="mobileno" placeholder="Mobile No.">
   </div>
-  <br/>
-
-  <input type="checkbox" id="agreeterms" name="agreeterms" value="I Agree">
-  <label for="agreeterms"> I Agree</label>
-  <p>By clicking register, you agree to the <a href="#">Terms and Conditions</a> set out by this site,including our Cookie Use.</p>
-  <input type="Register" class ="register" value="Register">
-  <input type="Sign In" class="signin" value="Sign In">
+  <div class="row">
+    <label for="email"></label>
+    <input type="text" id="email" name="email" placeholder="Email Address">
+  </div>
   
+  <div class="row">
+    <div class="column">
+      <label for="password"></label>
+      <input type="text" id="password" name="password" placeholder="Password">
+    </div>
+    <div class="column">
+      <label for="cpassword"></label>
+      <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password">
+    </div>
+  </div>
+  <input type="checkbox" name="agreeterms" value="I Agree">
+  <label for="agreeterms" id="agreeterms"> I Agree</label>
+  <p>By clicking <span id="reg-icon">Register</span>, you agree to the <a href="#">Terms and Conditions</a> set out by this site,including our Cookie Use.</p>
+  <!-- <div class="row">
+    <input type="checkbox" name="agreeterms" value="I Agree">
+    <div class="column">
+      
+      <label for="agreeterms" id="agreeterms"> I Agree</label>
+    </div>
+    <div class="column">
+      <p>By clicking <span id="reg-icon">Register</span>, you agree to the <a href="#">Terms and Conditions</a> set out by this site,including our Cookie Use.</p>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="column">
+      <input type="Register" class ="register" value="Register">
+    </div>
+    <div class="column">
+      <input type="Sign In" class="signin" value="Sign In">
+    </div>
+  </div>
+</div>
 </form> 
 </div>
 </div>
