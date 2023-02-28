@@ -168,3 +168,57 @@ function identityMatrix(n){
 }
 identityMatrix(4);
 
+// 11. Write a JavaScript function which will take an array of numbers stored and find the second
+// lowest and second greatest numbers, respectively. 
+// Sample array: [1,2,3,4,5]
+// Expected Output: 2,4 
+
+function secondL(arr){
+    let secondMax=0,secondMin=0;
+    if (arr.length < 2) {
+        console.log(" Invalid Input ");
+        return;
+    }
+    arr.sort(function(a,b){return a-b});
+    let s=new Set(arr);
+    let array=Array.from(s);
+    return [array[1],array[array.length-2]]
+
+}
+arr=[1,5,6,7,2,2,8,6,4,4];
+console.log(secondL(arr));
+
+// 12. Write a JavaScript function which says whether a number is perfect. 
+// According to Wikipedia: In number theory, a perfect number is a positive integer that is equal to
+// the sum of its proper positive divisors, that is, the sum of its positive divisors excluding the
+// number itself (also known as its aliquot sum). Equivalently, a perfect number is a number that is
+// half the sum of all of its positive divisors (including itself).
+// Example: The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1
+// + 2 + 3 = 6. Equivalently, the number 6 is equal to half the sum of all its positive divisors: ( 1 +
+// 2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by the
+// perfect numbers 496 and 8128.
+
+function perfectNum(num){
+    let sum=0;
+    for(let i = 1; i < num; i++) {
+        if(num % i == 0) {
+            sum+=i;
+        }
+    }
+    if (sum==num)
+        console.log("Perfect Number");
+    else
+        console.log("Not a Perfect Number");
+}
+perfectNum(8128);
+
+// 13. Write a JavaScript function to compute the factors of a positive integer. 
+
+function factor(num){
+    for(let i = 1; i <=num; i++) {
+        if(num % i == 0) {
+            console.log(i)
+        }
+    }
+}
+// factor(4);
