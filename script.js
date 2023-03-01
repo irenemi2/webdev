@@ -461,17 +461,18 @@ Array.prototype.Mymap=function(cFun){
     return res;
 }
 let arr=[3,2,5,2,7,8]
-console.log(arr.Mymap(function (num) {num*2}));
+console.log(arr.Mymap(function (num) {return num*2}));
 //Reduce
 
 Array.prototype.MyReduce=function(cFun,init){
     let accumulator=(init===undefined) ? 0 : init;
     for(let i=0;i<arr.length;i++){
-        accumulator+=cFun(accumulator,arr[i],i,arr);
+        accumulator=cFun(accumulator,arr[i],i,arr);
     }
     return accumulator;
 }
 
+console.log(arr.MyReduce(function (acc,curr) {return acc+curr}));
 // 1:Create a function that everytime you invoke it, it will print out the message "Congrats you earn 
 //the chance!", however it can only print out the message with the first 5 excutions. all the rest 
 //invoke will print out the message "Sorry you missed the chance"
