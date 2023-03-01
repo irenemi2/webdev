@@ -477,8 +477,24 @@ console.log(arr.MyReduce(function (acc,curr) {return acc+curr}));
 //the chance!", however it can only print out the message with the first 5 excutions. all the rest 
 //invoke will print out the message "Sorry you missed the chance"
 
-
+const message=(() => {
+    let count=0;
+    return function (){count++;if (count>5){
+        console.log("Congrats you earn the chance!");
+    }
+    else{
+        console.log("Sorry you missed the chance");
+    }
+    return count};
+})();
+message();
+message();
+message();
+message();
+message();
+message();
 
 // Filter an Array with a user input of minimum length
 // arr1 = ["123123", "123", "451511", "422"]
 // minimumLength = 5
+
