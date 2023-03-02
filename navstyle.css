@@ -25,13 +25,17 @@ img{
   bottom: 0;
   width: 100%;
 }
+.push{
+  margin-right: 600px;
+}
 .block{
-  
   background-color: #c6bfbf;
   float: left;
 }
-
-.block p,h1{
+summary{
+  color: rgb(33, 117, 213);
+}
+.block p,h1,details{
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -99,4 +103,10 @@ li.dropdown {
   text-align: left;
   line-height: 20px;
   font-size: 16px;
+}
+.active{
+  margin-left: 200px;
+}
+#Home{
+  margin-left: 200px;
 }
