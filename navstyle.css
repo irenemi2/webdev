@@ -31,9 +31,14 @@ img{
 .block{
   background-color: #c6bfbf;
   float: left;
+  padding-bottom: 20px;
 }
 summary{
+  display: block;
+}
+span{
   color: rgb(33, 117, 213);
+  text-decoration: underline;
 }
 .block p,h1,details{
   margin-left: 200px;
