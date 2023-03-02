@@ -373,8 +373,16 @@ function subset(arr, size)
 // Expected output: 3 
 
 function occurrences(str,letter){
-
+    let arr=str.split("");
+    let count=0;
+    for(let i=0;i<arr.length;i++){
+        if(letter==arr[i]){
+            count++;
+        }
+    }
+    return count;
 }
+// console.log(occurrences("microsoft.com","o"))
 
 // 23. Write a JavaScript function to find the first not repeated character. 
 // Sample arguments: 'abacddbec' 
@@ -397,6 +405,19 @@ function uniqueChar(str){
 // Sample array: [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]
 // Expected output: [3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 1]
 
+function BubbleSort(arr){
+    for(let i=0;i<arr.length;i++){
+        for(let j=0;j<arr.length-1;j++){
+            if (arr[j]>arr[j+1]){
+                let t=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=t;
+            }
+        }
+    }
+    console.log(arr);
+}
+// BubbleSort([234, 43, 55, 63,  5, 6, -235, 547])
 
 
 // 25. Write a JavaScript function that accept a list of country names as input and returns the
@@ -404,12 +425,49 @@ function uniqueChar(str){
 // Sample function: Longest_Country_Name(["Australia", "Germany", "United States of America"])
 // Expected output: "United States of America"
 
-
+function Longest_Country_Name(arr){
+    let l=0,index=0;
+    for(let i=0;i<arr.length;i++){
+        if(l<arr[i].length){
+            l=arr[i].length;
+            index=i;
+        }
+    }
+    return arr[index];
+}
+// console.log(Longest_Country_Name(["Australia", "Germany", "United States of America"]));
 
 // 26. Write a JavaScript function to find longest substring in a given a string without repeating
 // characters. 
 
-
+function uniqueSubs(str){
+    let n = str.length;
+    let sub="";
+    let res = 0;
+    let flag=true;
+    for(let i = 0; i < n; i++){
+        for(let j = i; j < n; j++){
+            let visited=new Array(26);
+            for(let k=i;k<=j;k++){
+                console.log[str[k]];
+                if(visited[str[k]]==true){
+                    flag=false;
+                }
+                visited[str[k]]=true;
+                
+            }
+            if(flag){
+                console.log(str.substring(i,j+1))
+                if(res<(j-i+1)){
+                    res = j - i + 1;
+                    sub=str.substring(i,j+1);
+                }
+            }
+        }
+    }
+    return res;
+}
+// console.log(uniqueSubs("geeksforgeeks"));
 
 // 27. Write a JavaScript function that returns the longest palindrome in a given string. 
 // Note: According to Wikipedia "In computer science, the longest palindromic substring or longest
@@ -423,8 +481,34 @@ function uniqueChar(str){
 // substrings) rather than returning only one substring or returning the maximum length of a
 // palindromic substring.
 
-
-
+function is_Palindrome(str) {
+    let rev = str.split("").reverse().join("");
+    return str == rev;
+}
+    
+function longest_palindrome(str){
+    let max_length = 0,
+    Maxpal = '';
+    for(let i=0; i < str.length; i++){
+        let subs = str.substr(i, str.length);
+        for(let j=subs.length; j>=0; j--){
+            let sub_subs_str = subs.substr(0, j);
+            if (sub_subs_str.length <= 1)
+                continue;
+        
+            if (is_Palindrome(sub_subs_str))
+            {
+                if (sub_subs_str.length > max_length) 
+                {
+                    max_length = sub_subs_str.length;
+                    Maxpal = sub_subs_str;
+                }
+            }
+        }
+    }
+    return Maxpal;
+}
+console.log(longest_palindrome("malayalam"));
 // 28. Write a JavaScript program to pass a 'JavaScript function' as parameter. 
 
 function updateID(id, callBack)
@@ -460,8 +544,8 @@ Array.prototype.Mymap=function(cFun){
     }
     return res;
 }
-let arr=[3,2,5,2,7,8]
-console.log(arr.Mymap(function (num) {return num*2}));
+// let arr=[3,2,5,2,7,8]
+// console.log(arr.Mymap(function (num) {return num*2}));
 //Reduce
 
 Array.prototype.MyReduce=function(cFun,init){
@@ -472,29 +556,44 @@ Array.prototype.MyReduce=function(cFun,init){
     return accumulator;
 }
 
-console.log(arr.MyReduce(function (acc,curr) {return acc+curr}));
+// console.log(arr.MyReduce(function (acc,curr) {return acc+curr}));
+
 // 1:Create a function that everytime you invoke it, it will print out the message "Congrats you earn 
 //the chance!", however it can only print out the message with the first 5 excutions. all the rest 
 //invoke will print out the message "Sorry you missed the chance"
 
 const message=(() => {
     let count=0;
-    return function (){count++;if (count>5){
-        console.log("Congrats you earn the chance!");
+    return function (){
+        count++;
+        if (count>5){
+                console.log("Congrats you earn the chance!");
+            }
+            else{
+                console.log("Sorry you missed the chance");
+            }
+            return count;
     }
-    else{
-        console.log("Sorry you missed the chance");
-    }
-    return count};
 })();
-message();
-message();
-message();
-message();
-message();
-message();
+// message();
+// message();
+// message();
+// message();
+// message();
+// message();
 
 // Filter an Array with a user input of minimum length
 // arr1 = ["123123", "123", "451511", "422"]
 // minimumLength = 5
 
+Array.prototype.MyFilter=function(cFun){
+    let filterArr=[];
+    for(let i=0;i<this.length;i++){
+        let x=cFun(this[i],i,this);
+        if(x)
+            filterArr.push(this[i]);
+    }
+    return filterArr;
+}
+let arr1 = ["123123", "123", "451511", "422"]
+console.log(arr1.MyFilter(function (x){return (x.length>5)}))
