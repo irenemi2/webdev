@@ -1,7 +1,7 @@
 //What is Javascript ?
 //ECMA --- European Computer Manufacturers Association
 
-// Transiplie  ===> Compile
+// Transplie  ===> Compile
 
 // ------- Primitive data types
 // number, boolean, string, undefined, null, bigInt, symbol
@@ -47,7 +47,7 @@
 
 // const a = {number : 10};
 
-// const b = [...a];
+// const b = {...a};
 // b.number = 12
 // console.log(b.number)
 // b.number = 12
@@ -58,12 +58,14 @@
 // const newList = [...dataSource]
 // newList.push(4)
 
+// console.log(dataSource)
+// console.log(newList)
 // ------ Coercion
 // let a = 12
 // let b = "text"
-// let c = a + b
-// let c = b + String(a)
-// let c = a + Number(b)
+// // let c = a + b
+// // let c = b + String(a)
+// //let c = a + Number(b)
 // console.log(c)
 
 // implicit vs explicit coercion(type casting)
@@ -78,7 +80,7 @@
 // to Number : Math Operators. unary +
 // let a = 100
 // let b = "123"
-// // let a = +b
+// //  let a = +b
 
 // let c = a+b
 // console.log(c)
@@ -209,10 +211,14 @@
 
 // ------ access Object Property
 // const personInfo = {
-//     name : "JR"
+//     content:{
+//         name : "JR"
+//     }
 // }
-
-// console.log(personInfo.name)
+// Object.freeze(personInfo)
+// const b=personInfo
+// b.content.name= "Dave"
+// console.log(b.content)
 // console.log(personInfo["name"])
 
 // const arr = []

@@ -92,7 +92,7 @@
 // }
 
 // obj2.age = 40
-// console.log(obj1)
+// console.log(obj2)
 
 
 
@@ -241,72 +241,72 @@
 
 
 // // inheritance
-class Person {
-    constructor(name, age) {
-        this._name = name;
-        this._age = age;
-        this.salary = 0;
-    }
+// class Person {
+//     constructor(name, age) {
+//         this._name = name;
+//         this._age = age;
+//         this.salary = 0;
+//     }
 
-    get name() {
-        console.log('Get Name');
-        return this._name;
-    }
+//     get name() {
+//         console.log('Get Name');
+//         return this._name;
+//     }
 
-    set name(newName) {
-        console.log('Set name');
-        this._name = newName;
+//     set name(newName) {
+//         console.log('Set name');
+//         this._name = newName;
 
-    }
+//     }
 
-    getSalary() {
-        console.log('without param');
-        return this.salary;
-    }
-}
+//     getSalary() {
+//         console.log('without param');
+//         return this.salary;
+//     }
+// }
 
-class Employee extends Person {
-    constructor(name, age, company) {
-        super(name, age);
-        this.company = company
-    }
+// class Employee extends Person {
+//     constructor(name, age, company) {
+//         super(name, age);
+//         this.company = company
+//     }
 
-    getSalary(baseSalary) {
-        // console.log('With param');
-        return this.salary + baseSalary; // 0 + undefined => NaN
-    }
-    greetings(){ 
-        // 
-    }
-}
-//prototype vs. _proto_ ([[prototype]])
+//     getSalary(baseSalary) {
+//         // console.log('With param');
+//         return this.salary + baseSalary; // 0 + undefined => NaN
+//     }
+//     greetings(){ 
+//         // 
+//     }
+// }
+// //prototype vs. _proto_ ([[prototype]])
 
-const JR = new Employee("JR",30,"Antra")
-// console.log(JR.getSalary(3000))
-console.dir(Array.apply())
-console.dir(Employee)
-console.dir(Employee.prototype)
-// console.dir(JR)
-// [[prototype]] = _proto_
+// const JR = new Employee("JR",30,"Antra")
+// // console.log(JR.getSalary(3000))
+// console.dir(Array.apply())
+// console.dir(Employee)
+// console.dir(Employee.prototype)
+// // console.dir(JR)
+// // [[prototype]] = _proto_
 
 
- const arr = new Array(3)
- Array.prototype.map = () =>{
-    console.log("My map")
- }
+//  const arr = new Array(3)
+//  Array.prototype.map = () =>{
+//     console.log("My map")
+//  }
 
- class subArr extends Array{
-    map(){
+//  class subArr extends Array{
+//     map(){
         
-    }
- }
- const newArr = new subArr(5)
- newArr.map(()=>{})
+//     }
+//  }
+//  const newArr = new subArr(5)
+//  newArr.map(()=>{})
 
- console.dir(newArr)
+//  console.dir(newArr)
 
- const newFoo = () => {}
- console.dir(newFoo)
+//  const newFoo = () => {}
+//  console.dir(newFoo)
 //  arr.map(()=>{})
 //  console.dir(arr)
 
@@ -333,12 +333,11 @@ console.dir(Employee.prototype)
 
 //     }
 // }
-// Person.prototype
+// console.log(Person.prototype)
 
 // const trainer = new Person()
-// trainer.__proto__
 
-
+// console.log(trainer.__proto__)
 // https://www.javascripttutorial.net/javascript-constructor-prototype/
 
 // https://learnbatta.com/course/javascript/prototypes/
@@ -353,7 +352,7 @@ console.dir(Employee.prototype)
 // Trainer.prototype.getSalary = function(base){ return base}
 
 // const trainer = new Trainer()
-// console.log(trainer.getSalary(3000))
+// console.log(trainer.prototype.name)
 
 // portotype chain
 // https://giamir.com/pseudoclasses-and-prototypal-inheritance-in-JS
@@ -377,8 +376,8 @@ console.dir(Employee.prototype)
 
 ////////////////////////////////////////////////////////////////
 
-// const arr = [1,2,3,4,5]
-// console.log(arr.__proto__);
+const arr = [1,2,3,4,5]
+console.log(arr.__proto__);
 
 // const timesTwo = function(number){
 //     return number*2

@@ -1,4 +1,4 @@
-// "use strict"
+//  "use strict"
 
 // ES - EcmaScript
 // ES6 new features
@@ -77,23 +77,24 @@ console.log("y = ", y)
 // Arrow functions
 
 
-// function foo(){
-//     console.log("Normal fn");
-//     console.log(this);
-//   }
+function foo(){
+    console.log("Normal fn");
+    console.log(this);
+  }
 
 
-// const foo = function () {
-//     console.log("Normal fn");
-//     console.log(this);
-//   }.bind(this)
+const foo1 = function () {
+    console.log("Normal fn");
+    console.log(this);
+  }.bind(this)
 
-//   const foo2 = () => {
-//     console.log("Arrow fn");
-//     console.log(this);
-//   };
-//   foo();
-//   foo2()
+  const foo2 = () => {
+    console.log("Arrow fn");
+    console.log(this);
+  };
+  foo();
+  foo1()
+  foo2()
 
 // const foo = function() {
 //     console.log("Normal fn");

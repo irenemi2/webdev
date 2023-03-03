@@ -3,6 +3,7 @@
 // Javascript is single threaded, non-blocking 
 
 // Synchronous/ Asynchronous
+
 // Synchronous code runs in sequence. 
 // This means that each operation must wait for the previous one to complete before executing.
 // Asynchronous code runs in parallel. 
@@ -13,8 +14,8 @@
 // console.log('Finish Eating');
 
 // console.log('--------- work asynchronously ------------');
-// console.log('Finish Cooking');
 // setTimeout(() => console.log('Finish Washing Clothes'), 0);
+// console.log('Finish Cooking');
 // console.log('Finish Eating');
 
 
@@ -22,6 +23,20 @@
 // image : https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd
 // heap/ call stack/ callback queue(event queue)/ Web Api
 // https://nodejs.dev/en/learn/the-nodejs-event-loop
+
+// function foo1(){
+//     console.log("first")
+// }
+// function foo2(){
+//    setTimeout(() => {
+//     console.log("Second")
+//    }, 1000); 
+// }
+// function foo3(){
+//     for(let i in 100000000000){
+        
+//     }
+// }
 
 // function sync(ms) {
 //     let start = Date.now(),
@@ -32,9 +47,9 @@
 //     console.log("Sync: finish main stack in " + ms/1000 + " seconds")
 // }
 
-// sync(2000)
-// sync(3000)
-// sync(1000)
+// // sync(2000)
+// // sync(3000)
+// // sync(1000)
 
 
 // function async(ms){
@@ -43,13 +58,41 @@
 //     }, ms);
 // }
 
-// async(3000)
-// async(0)
-// async(0)
+// async(4000)
+// async(7000)
+// async(1000)
 
 // sync(2000)
 // async(7000)
 // sync(3000)
+
+// async(2000)
+// async(1000)
+// sync(3000)
+
+
+const cb = (x) => {
+    console.log(x)
+}
+function main(){
+    let x = async(cb)
+}
+
+function async(func){
+    setTimeout(() => {
+        
+        let str = "JR"
+        cb()
+        return str
+
+    }, 1000);
+}
+
+async(cb)
+
+console.log(str)
+
+main()
 
 
 ////////////////////////////////////////////////////////////////////
@@ -57,29 +100,43 @@
 // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing
 // doStep1 => use result for doStep2 => use result for doStep3
 
+// cb1=>{
+//     cb2=>{
+//         cb3=>{
+//             cb4=>{}
+//         }
+//     }
+// }
+
+// let resA = ''
+// let resB = ''
+// let resC = ''
+
 // const AuthA = () => {
-//     setTimeout(()=>{return "A is true"}
+//     setTimeout(()=>{ resA = 'A is true'; return resA}
 //         , 1000)
 // }
-// const AuthB = () => {
-//     setTimeout(()=>{return "B is true"}
+// const AuthB = (resA) => {
+//     setTimeout(()=>{resB = resA + "B is true"; return resB}
 //         , 500)
 // }
 
-
-// const AuthC = () => {
-//     setTimeout(()=>{return "C is true"}
-//         , 400)
-// }
+// // const AuthC = () => {
+// //     setTimeout(()=>{return "C is true"}
+// //         , 400)
+// // }
 
 // const AuthAll = () => {
  
 //    setTimeout(()=>{
       
-//       setTimeout(()=>{return "A is true"}
-//       , 1000)
+//       setTimeout(()=>{
+//        resA = 'A is true';
+//        return resA
+//     } , 1000)
 
-//       return "B is true"
+//       resB = resA + "B is true"; 
+//       return resB
 
 //    }
 
@@ -98,21 +155,44 @@
 // pending
 // fullfilled
 // reject
+// const userInfo = []
+// const resolve = (data) =>{
+//     userInfo = data;
+//     console.log(data)
+// }
+// const reject = (error) => {
+//     console.log(error)
+// }
+// const returnPromise = new Promise(
+//     (res)=>{console.log(res)}
+// )
 
 
 
-// const returnPromise = new Promise((resolve, reject) => {
+////////////////////////////////////////////////////////////////////
+//https://medium.com/@armando_amador/how-to-make-http-requests-using-fetch-api-and-promises-b0ca7370a444
 
-//    // console.log("Initial");
-//    let indicator = true;
-//   //  if(!validate) reject("error here")
-//   //  else resolve(123);
-// //   resolve(123)
-// reject("error here")
+// fetch(url).then(res=> console.log(res))
+// fetch(url)
 
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: "POST",
+//   body: JSON.stringify(_data),
 // })
 
-// this.data = 0;
+// const newPromise = Promise.reject("this is the message")
+
+    
+
+
+// newPromise.then(
+//     (res)=> {
+//         console.log(res+"no error"); 
+//         return "this is for the next stage";
+//     }).then(res=> console.log(res + " respond")).catch(err=> console.log("we found an error"))
+
+////////////////////////////////////
+
 
 
 // returnPromise.then(
@@ -166,16 +246,17 @@
 //     setTimeout(resolve, 200, 'foo 200');
 // });
 // const promise3 = new Promise((resolve, reject) => {
-//     setTimeout(resolve, 100, 'foo 100');
+//     setTimeout(reject, 100, 'error foo 100');
 // });
+
 
 // Promise.all([promise1, promise2, promise3]).then((values) => {
 //     console.log(values);
 // });
 // expected output: Array [3, 42, "foo"]
 
-// Micro Task / Macro Task
-// job queue
+//Micro Task / Macro Task
+//job queue
 
 // console.log('Message no. 1: Sync');
 
@@ -199,35 +280,37 @@
 
 
 
-////////////////////////////////////////////////////////////////////
-//https://medium.com/@armando_amador/how-to-make-http-requests-using-fetch-api-and-promises-b0ca7370a444
-
-// fetch(url).then(res=> console.log(res))
 
 
 // Async Await
 
-// function resolveAfter2Seconds() {
-//     return new Promise(resolve => {
-//       setTimeout(() => {
-//         resolve('resolved');
-//       }, 2000);
-//     });
-//   }
+function resolveAfter2Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('resolved first');
+      }, 2000);
+    });
+  }
 
-//  resolveAfter2Seconds().then(res1=>console.log(res1))
+//  resolveAfter2Seconds().then(res=>console.log(res))
 //  resolveAfter2Seconds().then(res2=>console.log(res2))
 
  
 //   console.log(1)
-//  async function asyncCall() {
-//     const result = await resolveAfter2Seconds();
-//     console.log(result)
-//     const result2 = await resolveAfter2Seconds().then().catch();
-//     console.log(result2)
-//    }
+ async function asyncCall() {
+
+    console.log("inside async")
+    const result = await resolveAfter2Seconds();
+
+    console.log(result)
+    console.log("runs next")
+    // console.log(result)
+    // const result2 = await resolveAfter2Seconds().then().catch();
+    // console.log(result2)
+   }
   
-// asyncCall();
+asyncCall();
+console.log("runs outside")
 // console.log("here")
   
   
